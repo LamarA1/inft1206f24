@@ -23,4 +23,12 @@ for (const filename of imageFilenames) {
     thumbBar.appendChild(newImage);
 }
 
+/* Adding click event listeners to thumbnail images */
+thumbBar.addEventListener('click', (e) => {
+    if (e.target.tagName === 'IMG') {
+      displayedImage.src = e.target.src;
+      displayedImage.alt = e.target.alt;
+    }
+});
+
 /* Wiring up the Darken/Lighten button */
