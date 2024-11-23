@@ -154,6 +154,13 @@ const evilCircle = new EvilCircle(
   random(0 + 10, height - 10)
 );
 
+const para = document.createElement('p');
+document.body.appendChild(para);
+function updateScore() {
+  const count = balls.filter(ball => ball.exists).length;
+  para.textContent = 'Ball count: ' + count;
+}
+
 function loop() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
   ctx.fillRect(0, 0, width, height);
@@ -169,6 +176,8 @@ function loop() {
   evilCircle.checkBounds();
   evilCircle.collisionDetect();
 
+  updateScore();
+  
   requestAnimationFrame(loop);
 }
 loop();
