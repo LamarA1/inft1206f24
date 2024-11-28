@@ -39,6 +39,13 @@ const list = document.querySelector('.comment-container');
 form.onsubmit = function(e) {
   e.preventDefault();
   submitComment();
+  
+  // Basic form validation
+  if (nameField.value.trim() === '' || commentField.value.trim() === '') {
+    alert('Please fill in both fields.');
+    return;
+  }
+  
 };
 
 function submitComment() {
