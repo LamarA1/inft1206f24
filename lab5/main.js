@@ -46,6 +46,12 @@ form.onsubmit = function(e) {
     return;
   }
   
+  try {
+    submitComment();
+  } catch (error) {
+    console.error('Error adding comment:', error);
+    alert('An error occurred. Please try again.');
+  }
 };
 
 function submitComment() {
